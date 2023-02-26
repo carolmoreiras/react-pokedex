@@ -1,26 +1,31 @@
-import { CardContainer, Button, BgPokebola, DetailsGotcha, ImgPokeCard } from './PokemonCardStyle'
-import Poison from '../../Icons/poison.svg'
-import Grass from '../../Icons/grass.svg'
+import { CardContainer, Button, BgPokebola, DetailsGotcha, ImgPokeCard, ContainerType, } from './PokemonCardStyle'
+import { TypeCard } from '../TypeCard/TypeCard'
 import Pokebola from '../../Icons/pokebola.svg'
 
 
-export const PokemonCard = () => {
+export const PokemonCard = ({
+  pokemon
+}) => {
   return (
-    <CardContainer>
-      <div>
-        <p>#01</p>
-        <h1>Bulbasaur</h1>
+    <div>
+      <CardContainer>
         <div>
-          <img src={Poison} />
-          <img src={Grass} />
+          <p>#{pokemon.id}</p>
+          <h1>{pokemon.name}</h1>
+          <ContainerType>
+            {pokemon.types.map(type => (
+              <TypeCard key={type.slot} type={type.type.name} />
+            ))}
+          </ContainerType>
         </div>
-      </div>
-      <BgPokebola src={Pokebola} />
-        <ImgPokeCard src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" />
-      <DetailsGotcha>
-        <p>Detalhes</p>
-        <Button>Capturar!</Button>
-      </DetailsGotcha>
-    </CardContainer>
+        <BgPokebola src={Pokebola} />
+        <ImgPokeCard src={pokemon.sprites.other["official-artwork"].front_default} />
+        <DetailsGotcha>
+          <p>Detalhes</p>
+          <Button>Capturar!</Button>
+        </DetailsGotcha>
+
+      </CardContainer>
+    </div>
   )
 }

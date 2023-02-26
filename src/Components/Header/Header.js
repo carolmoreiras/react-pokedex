@@ -1,13 +1,13 @@
 import React from "react";
-import { Logo } from './styles'
+import { HeaderContainer } from './styles'
 import LogoImg from '../../Images/logo-pokemon.png'
 
 
 export const Header = () => {
   return (
-      <Logo>
+      <HeaderContainer>
          <img src={LogoImg} alt='Logo Pokémon'/>
          <button>Pokédex</button>
-      </Logo>
+      </HeaderContainer>
   )
 }
