@@ -4,19 +4,21 @@ export const Phrase = styled.p`
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 700;
-  font-size: 42px;
-  line-height: 72px;
-  color: #33A4F5;
+  font-size: 36px;
+  color: black;
+  /* text-shadow: 1px 4px 2px rgba(0,0,0,0.6); */
+  margin-left: 20px;
+  margin-bottom: 8px;
 
 `
 
 export const PokemonListContainer = styled.div`
-  margin: 32px;
+  margin: 0 32px;
 `
 
 export const PokeCardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
-  justify-content: space-evenly;
+  gap: 18px;
+  justify-content: center;
 `

@@ -1,31 +1,32 @@
 import { PokemonCard } from "../../Components/PokemonCard/PokemonCard"
 import { Phrase, PokemonListContainer, PokeCardContainer } from "../PokemonListPage/PokemonListStyle"
 import { usePokemon } from "../../contexts/globalcontext"
+import {EmptyPokedex} from "../../Pages/PokeDexPage/PokeDexStyle"
+import ImgPokedex from "../../Images/pokedex.png"
 
-
-export const PokemonListPage = () => {
+export const PokeDexPage = () => {
   const {
-    pokemonList,
-    addPokemonToPokedex
+    pokeDex,
+    removePokemonFromPokedex
   } = usePokemon()
 
   return (
     <PokemonListContainer>
-      <Phrase>Todos Pokémons</Phrase>
-      <div>
-
-      </div>
+      <Phrase>Pokédex</Phrase>
       <PokeCardContainer>
-        {pokemonList.length ?
-          pokemonList.map(pokemon => (
+        {pokeDex.length ?
+          pokeDex.map(pokemon => (
             <PokemonCard
               key={pokemon.id}
               pokemon={pokemon}
-              addPokemonToPokedex={addPokemonToPokedex}
+              removePokemonFromPokedex={removePokemonFromPokedex}
             />
           ))
           : (
-            <p>Loading...</p>
+            <div>
+              <img src={ImgPokedex}/>
+              {/* <EmptyPokedex>Pokédex Vazia</EmptyPokedex> */}
+            </div>
           )}
       </PokeCardContainer>
     </PokemonListContainer>

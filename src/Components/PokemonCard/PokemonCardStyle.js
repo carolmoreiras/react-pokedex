@@ -12,17 +12,22 @@ export const CardContainer = styled.div`
   padding: 16px;
   margin-top: 40px;
 
-  h1{
-    font-family: 'Inter';
-    font-size: 32px;
-    font-weight: 700;
-  }
-
   p{
     font-family: 'Inter';
     font-size: 16px;
     font-weight: 700;
   }
+`
+export const ButtonDetails = styled.button`
+  font-family: 'Inter';
+  color: white;
+  text-decoration: underline 1.5px;
+  text-underline-position: under;
+  text-decoration-color: #f5f5f5;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  background-color: transparent;
 `
 
 export const Button = styled.button`

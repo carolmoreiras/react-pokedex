@@ -1,13 +1,19 @@
-import {BrowserRouter, Routes, Route} from "react-router-dom";
-import {PokemonListPage} from "../Pages/PokemonListPage/PokemonListPage";
+import { BrowserRouter, Routes, Route, } from "react-router-dom";
+import { PokemonListPage } from "../Pages/PokemonListPage/PokemonListPage";
+import { PokeDexPage } from "../Pages/PokeDexPage/PokeDexPage"
+import { Header } from "../Components/Header/Header"
+import { PokemonDetailPage } from "../Pages/PokemonDetailPage/PokemonDetailPage";
 
-export const Router = ({
-  pokemonList
-}) => {
+export const Router = () => {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
-        <Route index element={<PokemonListPage pokemonList={pokemonList}/>} />
+        <Route index element={<PokemonListPage />} />
+        <Route path="/pokedex" element={<PokeDexPage />} />
+        <Route
+          path="/pokemon/:pokemonName"
+          element={<PokemonDetailPage />} />
       </Routes>
     </BrowserRouter>
   );

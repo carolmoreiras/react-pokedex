@@ -1,12 +1,13 @@
 import { createGlobalStyle } from "styled-components";
+import WallPaper from "./Images/wallpaper-pokeball.png"
 
 export const GlobalStyle = createGlobalStyle`
 body {
-  background-color: white;
-  
+  background-image: url(${WallPaper});
+  background-attachment: fixed;
 }
 
-h1 {
+h2 {
   font-family: Inter;
   font-size: 32px;
   font-weight: 700;
