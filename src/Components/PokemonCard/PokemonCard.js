@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import { CardContainer, Button, BgPokebola, DetailsGotcha, ImgPokeCard, ContainerType, ButtonDetails } from './PokemonCardStyle'
+import { CardContainer, ButtonCapturar, ButtonExcluir, BgPokebola, DetailsGotcha, ImgPokeCard, ContainerType, ButtonDetails } from './PokemonCardStyle'
 import { TypeCard } from '../TypeCard/TypeCard'
 import Pokebola from '../../Icons/pokebola.svg'
 
@@ -48,10 +48,10 @@ export const PokemonCard = ({
       <DetailsGotcha>
         <ButtonDetails onClick={goToDetails}>Detalhes</ButtonDetails>
         {location.pathname === "/pokedex" ? (
-          <Button onClick={() => removePokemonFromPokedex(pokemon)}>Excluir</Button>
+          <ButtonExcluir onClick={() => removePokemonFromPokedex(pokemon)}>Excluir</ButtonExcluir>
 
         ) : (
-          <Button onClick={() => addPokemonToPokedex(pokemon)}>Capturar!</Button>
+          <ButtonCapturar onClick={() => addPokemonToPokedex(pokemon)}>Capturar!</ButtonCapturar>
         )}
       </DetailsGotcha>
 

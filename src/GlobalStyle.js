@@ -1,10 +1,12 @@
 import { createGlobalStyle } from "styled-components";
 import WallPaper from "./Images/wallpaper-pokeball.png"
+import AshCursor from "./Icons/ash_cursor.png"
 
 export const GlobalStyle = createGlobalStyle`
 body {
   background-image: url(${WallPaper});
   background-attachment: fixed;
+  cursor: url(${AshCursor}), auto;
 }
 
 h2 {

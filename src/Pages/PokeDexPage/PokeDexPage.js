@@ -1,7 +1,6 @@
 import { PokemonCard } from "../../Components/PokemonCard/PokemonCard"
 import { Phrase, PokemonListContainer, PokeCardContainer } from "../PokemonListPage/PokemonListStyle"
 import { usePokemon } from "../../contexts/globalcontext"
-import {EmptyPokedex} from "../../Pages/PokeDexPage/PokeDexStyle"
 import ImgPokedex from "../../Images/pokedex.png"
 
 export const PokeDexPage = () => {
@@ -25,7 +24,6 @@ export const PokeDexPage = () => {
           : (
             <div>
               <img src={ImgPokedex}/>
-              {/* <EmptyPokedex>Pokédex Vazia</EmptyPokedex> */}
             </div>
           )}
       </PokeCardContainer>

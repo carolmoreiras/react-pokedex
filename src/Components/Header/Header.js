@@ -1,8 +1,9 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { HeaderContainer, ButtonBackToPoke, ButtonHeader, ButtonRemovePoke } from './styles'
+import { HeaderContainer, ButtonBackToPoke, ButtonHeader, ButtonRemovePoke, ContainerAudio } from './styles'
 import LogoImg from '../../Images/logo-pokemon.png'
 import { usePokemon } from "../../contexts/globalcontext";
+import PokemonMp3 from "../../Music/Pokemon.mp3"
 
 export const Header = () => {
   const {
@@ -23,8 +24,8 @@ export const Header = () => {
   }
 
   const isPokemonOnPokedex = pokeDex.filter(pokemon =>
-      pokemon.name === location.pathname.split("/")[2]
-    ).length > 0
+    pokemon.name === location.pathname.split("/")[2]
+  ).length > 0
 
   const pokemonToRemove = pokeDex.find(pokemon =>
     pokemon.name === location.pathname.split("/")[2]
@@ -32,17 +33,21 @@ export const Header = () => {
 
   return (
     <HeaderContainer>
+
       <img src={LogoImg} alt='Logo Pokémon' />
       {location.pathname !== "/" && (
         <ButtonBackToPoke onClick={goToPokeList}>{"< Voltar para Todos Pokémons"}</ButtonBackToPoke>
       )}
       {location.pathname === "/" && (
-        <ButtonHeader onClick={goToPokeDex}>Pokédex</ButtonHeader>
+        <>
+          <ContainerAudio src={PokemonMp3} controls></ContainerAudio>
+          <ButtonHeader onClick={goToPokeDex}>Pokédex</ButtonHeader>
+        </>
       )}
       {location.pathname.includes("/pokemon") && (
         <ButtonRemovePoke
           disabled={!isPokemonOnPokedex}
-          onClick={() => removePokemonFromPokedex(pokemonToRemove)}>Remover Pokémon</ButtonRemovePoke>
+          onClick={() => removePokemonFromPokedex(pokemonToRemove)}>Excluir da Pokédex</ButtonRemovePoke>
       )}
     </HeaderContainer>
   )

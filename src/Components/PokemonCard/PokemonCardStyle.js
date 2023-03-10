@@ -1,4 +1,9 @@
 import styled from "styled-components";
+import AshCursor from "../../Icons/ash_cursor.png"
+import PokebolaCursor from "../../Icons/pokebola_cursor.png"
+import RemovePokeCursor from "../../Icons/remove_pokemon.png"
+
+
 
 export const CardContainer = styled.div`
   display: flex;
@@ -28,9 +33,10 @@ export const ButtonDetails = styled.button`
   font-weight: 700;
   border: none;
   background-color: transparent;
+  cursor: url(${AshCursor}), pointer;
 `
 
-export const Button = styled.button`
+export const ButtonCapturar = styled.button`
   height: 38px;
   width: 146px;
   left: 249px;
@@ -43,14 +49,38 @@ export const Button = styled.button`
   line-height: 24px;
   text-align: center;
   background-color: white;
-
+  cursor: url(${PokebolaCursor}), pointer;
+  transition: all 0.3s ease;
+  :hover{
+    box-shadow: rgba(64, 64, 64, 0.17) 0px -23px 25px 0px inset, rgba(64, 64, 64, 0.15) 0px -36px 30px 0px inset, rgba(64, 64, 64, 0.1) 0px -79px 40px 0px inset, rgba(64, 64, 64, 0.06) 0px 2px 1px, rgba(64, 64, 64, 0.09) 0px 4px 2px, rgba(64, 64, 64, 0.09) 0px 8px 4px, rgba(64, 64, 64, 0.09) 0px 16px 8px, rgba(64, 64, 64, 0.09) 0px 32px 16px;
+  }
 `
+export const ButtonExcluir = styled.button`
+  height: 38px;
+  width: 146px;
+  left: 249px;
+  border-radius: 8px;
+  border: none;
+  color: #0F0F0F;
+  font-family: 'Poppins';
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+  background-color: white;
+  cursor: url(${RemovePokeCursor}), pointer;
+  transition: all 0.3s ease;
+  :hover{
+    box-shadow: rgba(64, 64, 64, 0.17) 0px -23px 25px 0px inset, rgba(64, 64, 64, 0.15) 0px -36px 30px 0px inset, rgba(64, 64, 64, 0.1) 0px -79px 40px 0px inset, rgba(64, 64, 64, 0.06) 0px 2px 1px, rgba(64, 64, 64, 0.09) 0px 4px 2px, rgba(64, 64, 64, 0.09) 0px 8px 4px, rgba(64, 64, 64, 0.09) 0px 16px 8px, rgba(64, 64, 64, 0.09) 0px 32px 16px;
+  }
+`
+
+
 export const BgPokebola = styled.img`
- position: absolute;
-width: 224px;
-right: 0;
-top: 0;
- 
+  position: absolute;
+  width: 224px;
+  right: 0;
+  top: 0;
 `
 export const ImgPokeCard = styled.img`
   position: absolute;
