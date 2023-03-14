@@ -8,7 +8,9 @@ import PokemonMp3 from "../../Music/Pokemon.mp3"
 export const Header = () => {
   const {
     pokeDex,
-    removePokemonFromPokedex
+    pokemonList,
+    removePokemonFromPokedex,
+    addPokemonToPokedex
   } = usePokemon()
 
   const location = useLocation()
@@ -23,20 +25,24 @@ export const Header = () => {
     navigate("/")
   }
 
+  const pokemonOnURL = location.pathname.split("/")[2]
+
   const isPokemonOnPokedex = pokeDex.filter(pokemon =>
-    pokemon.name === location.pathname.split("/")[2]
+    pokemon.name === pokemonOnURL
   ).length > 0
 
-  const pokemonToRemove = pokeDex.find(pokemon =>
-    pokemon.name === location.pathname.split("/")[2]
-  )
+  const findPokemon = (pokemonName, arrayToSearch) => {
+    return arrayToSearch.find(pokemon => pokemon.name === pokemonName)
+  }
 
   return (
     <HeaderContainer>
 
       <img src={LogoImg} alt='Logo Pokémon' />
       {location.pathname !== "/" && (
-        <ButtonBackToPoke onClick={goToPokeList}>{"< Voltar para Todos Pokémons"}</ButtonBackToPoke>
+        <ButtonBackToPoke onClick={goToPokeList}>
+          {"< Voltar para Todos Pokémons"}
+        </ButtonBackToPoke>
       )}
       {location.pathname === "/" && (
         <>
@@ -45,9 +51,19 @@ export const Header = () => {
         </>
       )}
       {location.pathname.includes("/pokemon") && (
-        <ButtonRemovePoke
-          disabled={!isPokemonOnPokedex}
-          onClick={() => removePokemonFromPokedex(pokemonToRemove)}>Excluir da Pokédex</ButtonRemovePoke>
+        isPokemonOnPokedex ? (
+          <ButtonRemovePoke
+            onClick={() => removePokemonFromPokedex(findPokemon(pokemonOnURL, pokeDex))}
+          >
+            Excluir da Pokédex
+          </ButtonRemovePoke>
+        ) : (
+          <ButtonRemovePoke
+            onClick={() => addPokemonToPokedex(findPokemon(pokemonOnURL, pokemonList))}
+          >
+            Adicionar à Pokédex
+          </ButtonRemovePoke>
+        )
       )}
     </HeaderContainer>
   )

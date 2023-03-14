@@ -1,14 +1,16 @@
-import './App.css';
+import {  } from "./App.css";
 import { GlobalProvider } from './contexts/globalcontext';
-import { GlobalStyle } from './GlobalStyle';
 import { Router } from "./routes/Router"
+import { ChakraProvider } from '@chakra-ui/react';
+
 
 function App() {
   return (
-    <GlobalProvider>
-      <GlobalStyle />
-      <Router/>
-    </GlobalProvider>
+    <ChakraProvider>
+      <GlobalProvider>
+        <Router />
+      </GlobalProvider>
+    </ChakraProvider>
   );
 }
 

@@ -78,7 +78,7 @@ export const ButtonExcluir = styled.button`
 
 export const BgPokebola = styled.img`
   position: absolute;
-  width: 224px;
+  width: 236px;
   right: 0;
   top: 0;
 `

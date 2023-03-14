@@ -1,7 +1,10 @@
+import { useState } from 'react'
 import { useNavigate, useLocation } from "react-router-dom";
 import { CardContainer, ButtonCapturar, ButtonExcluir, BgPokebola, DetailsGotcha, ImgPokeCard, ContainerType, ButtonDetails } from './PokemonCardStyle'
 import { TypeCard } from '../TypeCard/TypeCard'
 import Pokebola from '../../Icons/pokebola.svg'
+import { Modal } from "../Modal/Modal";
+import { useDisclosure } from "@chakra-ui/react";
 
 const checkType = (types, typeToCheck) => {
   return types.filter(type => type.type.name === typeToCheck).length > 0
@@ -10,8 +13,9 @@ const checkType = (types, typeToCheck) => {
 export const PokemonCard = ({
   pokemon,
   addPokemonToPokedex,
-  removePokemonFromPokedex
+  removePokemonFromPokedex,
 }) => {
+  const [modalMessage, setModalMessage] = useState({})
 
   const backGroundCard = () => {
     if (checkType(pokemon.types, "grass")) return "#729F92"
@@ -19,11 +23,11 @@ export const PokemonCard = ({
     if (checkType(pokemon.types, "water")) return "#71C3FF"
     if (checkType(pokemon.types, "bug")) return "#76A866"
     if (checkType(pokemon.types, "normal")) return "#BF9762"
-
   }
 
-  const location = useLocation()
+  const { isOpen, onClose, onOpen } = useDisclosure()
 
+  const location = useLocation()
 
   const navigate = useNavigate()
 
@@ -31,9 +35,28 @@ export const PokemonCard = ({
     navigate(`/pokemon/${pokemon.name}`)
   }
 
+  const mutatePokemon = (pokemon, action) => {
+    let modalMessage
+
+    if (action === 'add') {
+      modalMessage = addPokemonToPokedex(pokemon)
+    } else {
+      modalMessage = removePokemonFromPokedex(pokemon)
+    }
+    console.log(modalMessage)
+    setModalMessage(modalMessage)
+
+    onOpen()
+  }
 
   return (
     <CardContainer style={{ backgroundColor: backGroundCard() }}>
+      <Modal
+        isOpen={isOpen}
+        onClose={onClose}
+        modalMessage={modalMessage.message}
+        modalTitle={modalMessage.title}
+      />
       <div>
         <p>#{pokemon.id < 10 ? `0${pokemon.id}` : pokemon.id}</p>
         <h2>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h2>
@@ -48,10 +71,9 @@ export const PokemonCard = ({
       <DetailsGotcha>
         <ButtonDetails onClick={goToDetails}>Detalhes</ButtonDetails>
         {location.pathname === "/pokedex" ? (
-          <ButtonExcluir onClick={() => removePokemonFromPokedex(pokemon)}>Excluir</ButtonExcluir>
-
+          <ButtonExcluir onClick={() => mutatePokemon(pokemon, 'remove')}>Excluir</ButtonExcluir>
         ) : (
-          <ButtonCapturar onClick={() => addPokemonToPokedex(pokemon)}>Capturar!</ButtonCapturar>
+          <ButtonCapturar onClick={() => mutatePokemon(pokemon, 'add')}>Capturar!</ButtonCapturar>
         )}
       </DetailsGotcha>
 

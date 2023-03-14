@@ -8,7 +8,7 @@ const promisesUrl = Array.from({ length: 21 }, (_, i) => `${baseURL}pokemon/${i 
 
 export const GlobalContext = createContext()
 
-export const GlobalProvider = ({children}) => {
+export const GlobalProvider = ({ children }) => {
   const [pokemonList, setPokemonList] = useState([])
   const [pokeDex, setPokeDex] = useState([])
 
@@ -18,19 +18,33 @@ export const GlobalProvider = ({children}) => {
       .catch(error => console.log(error))
   }, [])
 
-  const addPokemonToPokedex = (pokemon) => {
-    setPokeDex(previousState => [...previousState, pokemon])
-    alert(`${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)} foi adicionado á Podédex!`)
+  const addPokemonToPokedex = (pokemonToAdd) => {
+    const pokemonExist = pokeDex.filter(pokemon => pokemon.id === pokemonToAdd.id)
+    if (pokemonExist.length) {
+      return {
+        title: "Oops..",
+        message: "o pokémon já existe na pokédex"
+      }
+
+    }
+    setPokeDex(previousState => [...previousState, pokemonToAdd])
+    return {
+      title: "Gotcha!",
+      message: `${pokemonToAdd.name.charAt(0).toUpperCase() + pokemonToAdd.name.slice(1)} foi adicionado à sua Podédex!`
+    }
   }
 
   const removePokemonFromPokedex = (pokemonToRemove) => {
     const filteredPokedex = pokeDex.filter(pokemon => pokemon.id !== pokemonToRemove.id)
     setPokeDex(filteredPokedex)
-    alert(`${pokemonToRemove.name.charAt(0).toUpperCase() + pokemonToRemove.name.slice(1)} foi removido da Podédex!`)
+    return {
+      title: "Oh, no..!",
+      message: `${pokemonToRemove.name.charAt(0).toUpperCase() + pokemonToRemove.name.slice(1)} foi removido da Podédex!`
+    }
   }
 
 
-  return(
+  return (
     <GlobalContext.Provider value={{
       pokemonList,
       pokeDex,
@@ -40,6 +54,6 @@ export const GlobalProvider = ({children}) => {
       {children}
     </GlobalContext.Provider>
   )
-} 
+}
 
 export const usePokemon = () => useContext(GlobalContext) 

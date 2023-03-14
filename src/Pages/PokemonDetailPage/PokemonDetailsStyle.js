@@ -14,14 +14,25 @@ export const Phrase = styled.h2`
   }
 
 `
+export const LeftContainer = styled.div`
+  display: flex;
+  gap: 34px;
+`
+export const RightContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 34px;
+  `
 
 export const CardContainer = styled.div`
   position: relative;
   display: flex;
-  align-items: center;
+  gap: 68px;
   margin: 0 32px;
   width: calc(100% - 64px);
-  height: 600px;
+  height: 560px;
   background: #729F92;
   border-radius: 37px;
   padding: 32px;
@@ -37,7 +48,7 @@ export const CardContainer = styled.div`
 
 export const BgPokebola = styled.img`
  position: absolute;
-width: 800px;
+width: 740px;
 top: 0;
 right:0;
  
@@ -46,9 +57,9 @@ right:0;
 export const ImgPokemon = styled.img`
 
   position: absolute;
-  width: 200px;
-  right: 50px;
-  top: -100px;
+  width: 300px;
+  right: 24px;
+  top: -80px;
   z-index: 10;
 
 
@@ -57,34 +68,38 @@ export const ImgPokemon = styled.img`
 export const ContainerImgsPokes = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  justify-content: space-between;
 
  
 `
-
-export const ContainerPokes = styled.img`
-
+export const ContainerPokes = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: white;
-  width: 250px;
-  height: 250px;
- 
+  width: 230px;
+  height: 230px;
   border: 2px solid #FFFFFF;
   border-radius: 8px;
 `
 
+export const PokeGif = styled.img`
+  width: 80%;
+`
 
 export const ContainerBaseStats = styled.div`
-display: flex;
-flex-direction: column;
-    background-color: white;
-   height: 520px;
-   width: 250px;
-   z-index: 10;
-   border-radius: 12px;
-   
-   p, h2{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: white;
+  width: 340px;
+  border-radius: 12px;
+  padding: 12px;
+  z-index: 10;
+    
+  p, h2{
     color: black;
-   }
+  }
 `
 export const ContainerType = styled.div`
   display: flex;
@@ -99,9 +114,9 @@ export const ContainerMoves = styled.div`
   align-items: flex-start;
   flex-direction: column;
   background-color: white;
-  height: 420px;
+  height: 100%;
   width: 250px;
-  /* z-index: 100; */
+  z-index: 100;
   border-radius: 12px;
 
     h2{
@@ -120,4 +135,29 @@ export const ContainerMoves = styled.div`
     border: 1px dashed rgba(0, 0, 0, 0.14);
     border-radius: 12px;
    }
+`
+export const StatBar = styled.div`
+  height: 10px;
+  border-radius: 8px;
+  width: 109px;
+  background-color: transparent;
+`
+
+export const InnerBar = styled.div`
+  height: 10px;
+  border-radius: 8px;
+  background-color: orange;
+`
+export const Stats = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+`
+
+export const StatName = styled.p`
+  width: 40%;
+`
+
+export const StatNumber = styled.p`
+  width: 10%;
 `

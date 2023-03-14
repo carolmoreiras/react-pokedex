@@ -1,16 +1,16 @@
 import { createGlobalStyle } from "styled-components";
-import WallPaper from "./Images/wallpaper-pokeball.png"
+import WallPaper from "../Images/wallpaper-pokeball.png"
 import AshCursor from "./Icons/ash_cursor.png"
 
 export const GlobalStyle = createGlobalStyle`
 body {
-  background-image: url(${WallPaper});
+  background-image: url(${WallPaper})!important; 
   background-attachment: fixed;
   cursor: url(${AshCursor}), auto;
 }
 
 h2 {
-  font-family: Inter;
+  font-family: 'Inter';
   font-size: 32px;
   font-weight: 700;
   line-height: 38.73px;
