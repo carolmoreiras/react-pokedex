@@ -9,7 +9,7 @@ export const Phrase = styled.p`
   margin-bottom: 8px;
   @font-face {
     font-family: 'Pokemon Solid Regular';
-    src: url('fonts/POKEMON SOLID.TTF') format('truetype');
+    src: url('../fonts/POKEMON SOLID.TTF') format('truetype');
     font-style: normal;
     font-weight: normal;
   }
