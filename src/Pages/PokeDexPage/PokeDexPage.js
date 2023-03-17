@@ -19,7 +19,7 @@ export const PokeDexPage = () => {
               key={pokemon.id}
               pokemon={pokemon}
               removePokemonFromPokedex={removePokemonFromPokedex}
-            />
+            />    
           ))
           : (
             <div>

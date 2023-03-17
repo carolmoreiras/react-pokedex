@@ -9,7 +9,7 @@ export const HeaderContainer = styled.header`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 160px;
+  height: 140px;
   background: rgb(254,38,38);
  background: linear-gradient(0deg, rgba(254,38,38,1) 0%, rgba(196,38,38,0.9108018207282913) 0%, rgba(212,40,40,1) 11%, rgba(218,50,50,1) 24%, rgba(237,55,55,1) 41%, rgba(230,55,55,1) 56%, rgba(224,54,54,1) 67%, rgba(219,54,54,1) 88%, rgba(219,57,57,1) 100%);
   

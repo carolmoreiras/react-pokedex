@@ -16,6 +16,7 @@ export const Phrase = styled.p`
 
 export const PokemonListContainer = styled.div`
   margin: 0 32px;
+  margin-bottom: 32px;
 `
 
 export const PokeCardContainer = styled.div`

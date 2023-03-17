@@ -9,7 +9,7 @@ export const theme = extendTheme({
       body: {
         bgImage: `url(${WallPaper})`,
         bgAttachment: 'fixed',
-        cursor: `url(${AshCursor}), auto`
+        cursor: `url(${AshCursor}), auto`,
       },
         h2: {
           fontFamily: 'Inter',
@@ -18,7 +18,6 @@ export const theme = extendTheme({
           lineHeight: '38px',
           color: 'white',
         },
-      
       p: {
         color: 'white',
       }

@@ -4,6 +4,9 @@ import { HeaderContainer, ButtonBackToPoke, ButtonHeader, ButtonRemovePoke, Cont
 import LogoImg from '../../Images/logo-pokemon.png'
 import { usePokemon } from "../../contexts/globalcontext";
 import PokemonMp3 from "../../Music/Pokemon.mp3"
+import { Modal } from "../Modal/Modal";
+import { useDisclosure } from "@chakra-ui/react";
+import { useState } from "react";
 
 export const Header = () => {
   const {
@@ -12,6 +15,10 @@ export const Header = () => {
     removePokemonFromPokedex,
     addPokemonToPokedex
   } = usePokemon()
+
+  const [modalMessage, setModalMessage] = useState({})
+
+  const { isOpen, onClose, onOpen } = useDisclosure()
 
   const location = useLocation()
 
@@ -35,9 +42,32 @@ export const Header = () => {
     return arrayToSearch.find(pokemon => pokemon.name === pokemonName)
   }
 
+  const mutatePokemon = (pokemon, action) => {
+    let modalMessage
+
+    if (action === 'add') {
+      modalMessage = addPokemonToPokedex(pokemon)
+    } else {
+      modalMessage = removePokemonFromPokedex(pokemon)
+    }
+    
+    setModalMessage(modalMessage)
+
+    setTimeout(() => {
+      onClose()
+    }, 1500);
+
+    onOpen()
+  }
+
   return (
     <HeaderContainer>
-
+      <Modal
+        isOpen={isOpen}
+        onClose={onClose}
+        modalMessage={modalMessage.message}
+        modalTitle={modalMessage.title}
+      />
       <img src={LogoImg} alt='Logo Pokémon' />
       {location.pathname !== "/" && (
         <ButtonBackToPoke onClick={goToPokeList}>
@@ -53,13 +83,13 @@ export const Header = () => {
       {location.pathname.includes("/pokemon") && (
         isPokemonOnPokedex ? (
           <ButtonRemovePoke
-            onClick={() => removePokemonFromPokedex(findPokemon(pokemonOnURL, pokeDex))}
+            onClick={() => mutatePokemon(findPokemon(pokemonOnURL, pokeDex), "remove")}
           >
             Excluir da Pokédex
           </ButtonRemovePoke>
         ) : (
           <ButtonRemovePoke
-            onClick={() => addPokemonToPokedex(findPokemon(pokemonOnURL, pokemonList))}
+            onClick={() => mutatePokemon(findPokemon(pokemonOnURL, pokemonList), "add")}
           >
             Adicionar à Pokédex
           </ButtonRemovePoke>

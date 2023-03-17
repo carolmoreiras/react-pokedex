@@ -3,6 +3,7 @@ import { PokemonListPage } from "../Pages/PokemonListPage/PokemonListPage";
 import { PokeDexPage } from "../Pages/PokeDexPage/PokeDexPage"
 import { Header } from "../Components/Header/Header"
 import { PokemonDetailPage } from "../Pages/PokemonDetailPage/PokemonDetailPage";
+import { Footer } from "../Components/Footer/Footer";
 
 export const Router = () => {
   return (
@@ -15,6 +16,7 @@ export const Router = () => {
           path="/pokemon/:pokemonName"
           element={<PokemonDetailPage />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };

@@ -36,17 +36,21 @@ export const PokemonCard = ({
   }
 
   const mutatePokemon = (pokemon, action) => {
+    onOpen()
     let modalMessage
-
+    
+    
     if (action === 'add') {
       modalMessage = addPokemonToPokedex(pokemon)
     } else {
       modalMessage = removePokemonFromPokedex(pokemon)
     }
-    console.log(modalMessage)
     setModalMessage(modalMessage)
 
-    onOpen()
+    setTimeout(() => {
+      onClose()
+    }, 1500);
+
   }
 
   return (

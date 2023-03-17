@@ -150,11 +150,14 @@ export const InnerBar = styled.div`
 `
 export const Stats = styled.div`
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 12px;
 `
 
 export const StatName = styled.p`
+  display: flex;
+  justify-content: end;
   width: 40%;
 `
 

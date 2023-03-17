@@ -45,7 +45,7 @@ export const ButtonCapturar = styled.button`
   color: #0F0F0F;
   font-family: 'Poppins';
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 24px;
   text-align: center;
   background-color: white;
@@ -61,13 +61,13 @@ export const ButtonExcluir = styled.button`
   left: 249px;
   border-radius: 8px;
   border: none;
-  color: #0F0F0F;
+  color: white;
   font-family: 'Poppins';
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 24px;
   text-align: center;
-  background-color: white;
+  background-color: #FF6262;
   cursor: url(${RemovePokeCursor}), pointer;
   transition: all 0.3s ease;
   :hover{

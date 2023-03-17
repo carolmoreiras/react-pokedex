@@ -23,7 +23,7 @@ export const GlobalProvider = ({ children }) => {
     if (pokemonExist.length) {
       return {
         title: "Oops..",
-        message: "o pokémon já existe na pokédex"
+        message: "O pokémon já existe na pokédex"
       }
 
     }
@@ -39,7 +39,7 @@ export const GlobalProvider = ({ children }) => {
     setPokeDex(filteredPokedex)
     return {
       title: "Oh, no..!",
-      message: `${pokemonToRemove.name.charAt(0).toUpperCase() + pokemonToRemove.name.slice(1)} foi removido da Podédex!`
+      message: `${pokemonToRemove.name.charAt(0).toUpperCase() + pokemonToRemove.name.slice(1)} foi removido da sua Podédex!`
     }
   }
 
