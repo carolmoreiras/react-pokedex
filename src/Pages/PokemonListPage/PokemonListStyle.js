@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const Phrase = styled.p`
   font-family: 'Pokemon Solid Regular';
   font-size: 36px;
@@ -9,7 +10,7 @@ export const Phrase = styled.p`
   margin-bottom: 8px;
   @font-face {
     font-family: 'Pokemon Solid Regular';
-    src: url('../fonts/POKEMON SOLID.TTF') format('truetype');
+    src: url('../../fonts/POKEMON SOLID.TTF');
     font-style: normal;
     font-weight: normal;
   }
