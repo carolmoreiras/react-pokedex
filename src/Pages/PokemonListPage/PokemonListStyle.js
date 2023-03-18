@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import PokemonFont from "../../fonts/POKEMON-SOLID.TTF"
 
 
 export const Phrase = styled.p`
   @font-face {
     font-family: 'Pokemon Solid Regular';
-    src: url('../../fonts/POKEMON SOLID.TTF');
+    src: url(${PokemonFont});
     font-style: normal;
     font-weight: normal;
   }
