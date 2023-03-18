@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import PokemonFont from "../../fonts/POKEMON-SOLID.TTF"
 
 export const Phrase = styled.h2`
   font-family: 'Pokemon Solid Regular';
@@ -10,7 +10,7 @@ export const Phrase = styled.h2`
   margin-left: 40px;
   @font-face {
     font-family: 'Pokemon Solid Regular';
-    src: url('../../fonts/POKEMON SOLID.TTF');
+    src: url(${PokemonFont});
     font-style: normal;
   }
 
